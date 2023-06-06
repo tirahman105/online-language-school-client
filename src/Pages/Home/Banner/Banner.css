@@ -1,0 +1,6 @@
+.thumbs-wrapper ul {
+    display:none;
+  }
+  .carousel .control-dots .dot{
+    background: #1E3A8A !important;
+  }
