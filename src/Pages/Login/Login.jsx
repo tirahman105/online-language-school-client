@@ -1,37 +1,52 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => {
-    console.log(data)
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const {signIn} = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+
+  const from = location.state?.from?.pathname || "/";
+
+
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+  
+    console.log(data);
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        reset();
+        Swal.fire({
+          title: 'User Login Successful.',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown',
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp',
+          },
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
   };
 
 
-    const {signIn} = useContext(AuthContext);
+    
 
   const [showPassword, setShowPassword] = useState(false);
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
-  };
-
-  const handleLogin = event  => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-
-
-    console.log(email, password);
-    signIn(email, password)
-    .then(result => {
-        const user = result.user;
-        console.log(user);
-    })
-    .catch(error => console.log(error));
   };
   return (
     <>
@@ -97,7 +112,7 @@ const Login = () => {
                 </Link>{" "}
               </p>
             </div>
-            {/* <SocialLogin></SocialLogin> */}
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

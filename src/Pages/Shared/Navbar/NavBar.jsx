@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
 import './NavBar.css'
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
 
+  const handleLogOut = () => {
+      logOut()
+          .then(() => { })
+          .catch(error => console.log(error));
+  }
 
     const navOptions = <>
         <li><a>Home</a></li>
@@ -10,6 +18,7 @@ const NavBar = () => {
         <li><a>Classes</a></li>
         <li><a>Dashboard </a></li>
         <li><Link to="/login">Login</Link></li>
+      
     </>
 
 
@@ -34,8 +43,36 @@ const NavBar = () => {
       
     </ul>
   </div>
-  <div className="navbar-end">
+  {/* <div className="navbar-end">
     <a className="btn">Get Started</a>
+  </div> */}
+
+<div className="navbar-end">
+    {user?.email ? (
+      <>
+        <div className="avatar placeholder">
+          <div className=" bg-neutral-focus text-neutral-content rounded-full w-8">
+            <img
+              src={user?.photoURL}
+              title={user.displayName}
+              alt="User image"
+            />
+          </div>
+        </div>
+        <button onClick={handleLogOut} className="btn ml-2">
+          Logout
+        </button>
+      </>
+    ) : (
+      <>
+        <button className="btn bg-[#D36F3F] hover:bg-blue-700 border-0 ml-2">
+          <Link to="/login">Login</Link>
+        </button>
+        <button className="btn ml-2 border-0 bg-[#D36F3F] hover:bg-blue-700 text-white font-bold">
+          <Link to="/register">Register</Link>
+        </button>
+      </>
+    )}
   </div>
 </div>
         </>

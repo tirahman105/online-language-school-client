@@ -1,26 +1,52 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     watch
   } = useForm();
  
+
+  const {createUser, updateUserProfile} = useContext(AuthContext);
+  const navigate = useNavigate();
   
-  const password = watch("password"); // Get the value of the password field
+  const password = watch("password"); 
   const onSubmit = (data) => {
     if (data.password !== data.confirm) {
-      // Passwords don't match, show error message
       alert("Passwords do not match!");
       return;
     }
     console.log(data);
+    createUser(data.email, data.password)
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+      .then(() => {
+          console.log('user profile info updated')
+          reset();
+          Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'User created successfully.',
+              showConfirmButton: false,
+              timer: 1500
+          });
+          navigate('/');
+
+
+      })
+
+    })
+
     // Proceed with form submission
   };
 
@@ -32,6 +58,8 @@ const SignUp = () => {
   const toggleShowConfirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
+
+  
 
   return (
     <>
@@ -145,12 +173,12 @@ const SignUp = () => {
             </label>
             <input
               type="url"
-              {...register("photo", { required: true })}
+              {...register("photoURL", { required: true })}
               name="photo"
               placeholder="Photo url"
               className="input input-bordered"
             />
-            {errors.photo && (
+            {errors.photoURL && (
               <span className="text-red-600">Photo is required</span>
             )}
           </div>
