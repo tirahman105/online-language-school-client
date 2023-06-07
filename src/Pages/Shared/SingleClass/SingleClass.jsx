@@ -2,19 +2,10 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { AiFillDollarCircle } from "react-icons/ai";
 const SingleClass = ({singleClass}) => {
 
-
+// TODO: Image change from DB
     const {name, image, seats, instructor, price, details, category} = singleClass;
     return (
-        // <div className="flex space-x-2">
-        //     <img style={{borderRadius: '0 200px 200px 200px'}} className="w-[100px]" src="https://placehold.co/370x247" alt="" />
-        //     <div>
-        //         <h3 className="uppercase">{name}----------</h3>
-        //         <h2 className="text-2xl font-bold"> {instructor} </h2>
-        //         <p>{details}</p>
-        //     </div>
-        //     <p className="text-yellow-500">${price}</p>
-        //     <p className="text-yellow-500">${seats}</p>
-        // </div>
+       
 
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
   <figure><img src="https://placehold.co/370x247" alt="Shoes" /></figure>
