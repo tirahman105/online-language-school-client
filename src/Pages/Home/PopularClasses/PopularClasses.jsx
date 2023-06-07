@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import SingleClass from "../../Shared/SingleClass/SingleClass";
+import useClasses from "../../../hooks/useClasses";
 
 const PopularClasses = () => {
-  const [classes, setClasses] = useState([]);
-  useEffect(() => {
-      fetch('classes.json')
-      .then(res => res.json())
-      .then(data => {
-          const popularClasses = data.filter(singleClass => singleClass.category === 'popular');
-       setClasses(popularClasses)} )
-  },[])
+
+
+  const [classes] = useClasses();
+  const popular = classes.filter(singleClass => singleClass.category === 'popular')
+ 
+ 
 
   return (
     <section>
@@ -20,7 +19,7 @@ const PopularClasses = () => {
       ></SectionTitle>
        <div className="grid md:grid-cols-3 gap-4">
                 {
-                    classes.map(singleClass=> <SingleClass
+                    popular.map(singleClass=> <SingleClass
                     key={singleClass._id}
                     singleClass= {singleClass}>
                     </SingleClass>)
