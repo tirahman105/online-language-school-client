@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import SingleClass from "../../Shared/SingleClass/SingleClass";
 import useClasses from "../../../hooks/useClasses";
 
 const PopularClasses = () => {
-
 
   const [classes] = useClasses();
   const popular = classes.filter(singleClass => singleClass.category === 'popular')
