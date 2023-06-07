@@ -1,0 +1,62 @@
+[
+    {
+        "_id": "1",
+        "image": "https://example.com/english-for-academic-purposes.jpg",
+        "name": "Conversational Spanish for Beginners",
+        "instructor": "Maria Rodriguez",
+        "price": 99,
+        "details": "This class is designed for beginners who want to develop conversational skills in Spanish. Maria Rodriguez, a native Spanish speaker and experienced language instructor, will guide students through interactive lessons, focusing on practical vocabulary, grammar, and pronunciation. By the end of the course, students will be able to engage in basic conversations and confidently express themselves in Spanish.",
+        "seats": 20,
+        "category": "popular"
+      },
+      {
+        "_id": "2",
+        "image": "https://example.com/english-for-academic-purposes.jpg",
+        "name": "Intermediate French Grammar",
+        "instructor": "Pierre Dubois",
+        "price": 70,
+        "details": "Join Pierre Dubois, a knowledgeable French instructor, for this intermediate-level grammar class. Students will deepen their understanding of French grammar rules and structures, covering topics such as verb conjugation, tenses, sentence construction, and more. Through engaging exercises and interactive discussions, participants will improve their accuracy and fluency in written and spoken French.",
+        "seats": 15,
+        "category": "popular"
+      },
+      {
+        "_id": "3",
+        "image": "https://example.com/english-for-academic-purposes.jpg",
+        "name": "Business English Communication",
+        "instructor": "Sarah Thompson",
+        "price": 120,
+        "details": "Enhance your English communication skills for the professional world with Sarah Thompson, an experienced business English instructor. This comprehensive course focuses on business vocabulary, effective writing techniques, presentation skills, and cross-cultural communication. Students will gain the confidence to communicate professionally in various business scenarios and succeed in their careers.",
+        "seats": 25,
+        "category": "popular"
+      },
+      {
+        "_id": "4",
+        "image": "https://example.com/english-for-academic-purposes.jpg",
+        "name": "Japanese for Travelers",
+        "instructor": "Hiroshi Tanaka",
+        "price": 59,
+        "details": "Planning a trip to Japan? Join Hiroshi Tanaka, a native Japanese speaker and travel enthusiast, in this short-term course designed for beginners. Learn essential Japanese phrases, basic conversational skills, and cultural insights that will enhance your travel experience. From ordering food to asking for directions, this course will equip you with the language skills needed for a memorable trip to Japan.",
+        "seats": 18,
+        "category": "popular"
+      },
+      {
+        "_id": "5",
+        "image": "https://example.com/english-for-academic-purposes.jpg",
+        "name": "German Pronunciation Masterclass",
+        "instructor": "Anna Müller",
+        "price": 69,
+        "details": "Perfect your German pronunciation with Anna Müller, a dedicated German language instructor. In this specialized class, you will learn the intricacies of German sounds, intonation patterns, and phonetics. Through practice exercises, audio recordings, and individual feedback, you will develop clear and authentic German pronunciation, helping you communicate more effectively with native speakers.",
+        "seats": 12,
+        "category": "popular"
+      },
+      {
+        "_id": "6",
+        "image": "https://example.com/english-for-academic-purposes.jpg",
+        "name": "Introduction to Mandarin Chinese Calligraphy",
+        "instructor": "Li Wei",
+        "price": 30,
+        "details": "Explore the art of Mandarin Chinese calligraphy with Li Wei, an accomplished calligrapher and language instructor. This class introduces the fundamental brushstrokes, techniques, and aesthetics of Chinese calligraphy. Students will learn to write basic characters while appreciating the cultural significance of this ancient art form. The course fee includes a calligraphy brush set and practice materials mailed to your address.",
+        "seats": 10,
+        "category": "popular"
+      }
+  ]
