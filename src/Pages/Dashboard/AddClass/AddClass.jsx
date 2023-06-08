@@ -1,12 +1,47 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
-
+const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 const AddClass = () => {
+    const [axiosSecure] = useAxiosSecure();
     const { register, handleSubmit, reset } = useForm();
 
-    const onSubmit = data => {
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
+    const onSubmit = data => {
+        console.log(data);
+        const formData = new FormData();
+        formData.append('image', data.image[0])
+
+        fetch(img_hosting_url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(imgResponse => {
+            if(imgResponse.success){
+                const imgURL = imgResponse.data.display_url;
+                const {name, price, module, category, details} = data;
+                const newItem = {name, price: parseFloat(price),module: parseFloat(module), category, details, image:imgURL}
+                console.log(newItem)
+                axiosSecure.post('/classes', newItem)
+                .then(data => {
+                    console.log('after posting new class ', data.data)
+                    if(data.data.insertedId){
+                        reset();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Class added successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                    }
+                })
+            }
+        })
     }
     return (
         <div className="w-full">
@@ -58,7 +93,7 @@ const AddClass = () => {
                     <label className="label">
                         <span className="label-text">Course Details</span>
                     </label>
-                    <textarea {...register("details", { required: true })} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+                    <textarea {...register("details", { required: true })} className="textarea textarea-bordered h-24" placeholder="Write about your course"></textarea>
                 </div>
                 <div className="form-control w-full my-4">
                     <label className="label">

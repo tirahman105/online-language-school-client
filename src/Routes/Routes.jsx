@@ -12,6 +12,7 @@ import AdminRoute from "./AdminRoute";
 import Secret from "../Pages/Shared/Secret/Secret";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import InstructorRoute from "./InstructorRoute";
+import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
         {
           path: 'addclass', 
           element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+        },
+        {
+          path: 'manageclasses', 
+          element: <InstructorRoute><ManageClasses></ManageClasses></InstructorRoute>
         },
         {
           path: 'allusers', 

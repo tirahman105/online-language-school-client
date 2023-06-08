@@ -260,8 +260,8 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/mygivenclasses">
-                  <AiFillRead /> My Classes
+                <NavLink to="/dashboard/manageclasses">
+                  <AiFillRead /> Manage Classes
                 </NavLink>
               </li>
             </>
