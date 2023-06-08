@@ -8,6 +8,8 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import MyBookedClasses from "../Pages/Dashboard/MyBookedClasses";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
+import Secret from "../Pages/Shared/Secret/Secret";
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
           element: <Login></Login>,
         },
         {
+          path: 'secret',
+          element: <PrivateRoute><Secret></Secret></PrivateRoute>,
+        },
+        {
           path: 'signup',
           element: <SignUp></SignUp>
         }
@@ -40,7 +46,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'allusers', 
-          element: <AllUsers></AllUsers>
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
       ]
     }
