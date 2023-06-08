@@ -10,6 +10,8 @@ import MyBookedClasses from "../Pages/Dashboard/MyBookedClasses";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import Secret from "../Pages/Shared/Secret/Secret";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
+import InstructorRoute from "./InstructorRoute";
 
 
 const router = createBrowserRouter([
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
         {
           path: 'mybookedclasses', 
           element: <MyBookedClasses></MyBookedClasses>
+        },
+        {
+          path: 'addclass', 
+          element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
         },
         {
           path: 'allusers', 

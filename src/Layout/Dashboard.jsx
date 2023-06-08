@@ -228,11 +228,7 @@ const Dashboard = () => {
                   <FaHome /> Admin Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/addItem">
-                  <AiFillRead /> Add Class
-                </NavLink>
-              </li>
+             
               <li>
                 <NavLink to="/dashboard/manageitems">
                   <FaWallet /> Manage Items
