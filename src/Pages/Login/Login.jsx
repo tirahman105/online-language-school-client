@@ -102,18 +102,21 @@ const Login = () => {
                 />
               </div>
             </form>
-            <div className="divider"></div>
-            <div className="text-center mb-4">
-              {" "}
-              <p>
-                New Here?{" "}
-                <Link to="/signup" className="font-bold">
-                  Sign Up
-                </Link>{" "}
-              </p>
-            </div>
+           
+            
             <SocialLogin></SocialLogin>
+            <p className='px-6 text-sm text-center text-gray-400 mb-4'>
+          Don't have an account yet?{' '}
+          <Link
+            to='/signup'
+            className='hover:underline hover:text-rose-500 text-blue-600'
+          >
+            Sign up
+          </Link>
+          .
+        </p>
           </div>
+          
         </div>
       </div>
     </>

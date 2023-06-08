@@ -1,6 +1,6 @@
 [
     {
-        "_id": "1",
+        "_id": "6480a5aedfd3f181cdd0f0a6",
         "image": "https://example.com/english-for-academic-purposes.jpg",
         "name": "Conversational Spanish for Beginners",
         "instructor": "Maria Rodriguez",
@@ -10,7 +10,7 @@
         "category": "popular"
       },
       {
-        "_id": "2",
+        "_id": "6480a5aedfd3f181cdd0f0a7",
         "image": "https://example.com/english-for-academic-purposes.jpg",
         "name": "Intermediate French Grammar",
         "instructor": "Pierre Dubois",
@@ -20,7 +20,7 @@
         "category": "popular"
       },
       {
-        "_id": "3",
+        "_id": "6480a5aedfd3f181cdd0f0a8",
         "image": "https://example.com/english-for-academic-purposes.jpg",
         "name": "Business English Communication",
         "instructor": "Sarah Thompson",
@@ -30,7 +30,7 @@
         "category": "popular"
       },
       {
-        "_id": "4",
+        "_id": "6480a5aedfd3f181cdd0f0a9",
         "image": "https://example.com/english-for-academic-purposes.jpg",
         "name": "Japanese for Travelers",
         "instructor": "Hiroshi Tanaka",
@@ -40,7 +40,7 @@
         "category": "popular"
       },
       {
-        "_id": "5",
+        "_id": "6480a5aedfd3f181cdd0f0aa",
         "image": "https://example.com/english-for-academic-purposes.jpg",
         "name": "German Pronunciation Masterclass",
         "instructor": "Anna Müller",
@@ -50,7 +50,7 @@
         "category": "popular"
       },
       {
-        "_id": "6",
+        "_id": "6480a5aedfd3f181cdd0f0ab",
         "image": "https://example.com/english-for-academic-purposes.jpg",
         "name": "Introduction to Mandarin Chinese Calligraphy",
         "instructor": "Li Wei",
