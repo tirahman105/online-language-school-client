@@ -7,6 +7,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import MyBookedClasses from "../Pages/Dashboard/MyBookedClasses";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,11 @@ const router = createBrowserRouter([
         {
           path: 'mybookedclasses', 
           element: <MyBookedClasses></MyBookedClasses>
-        }
+        },
+        {
+          path: 'allusers', 
+          element: <AllUsers></AllUsers>
+        },
       ]
     }
   ]);
