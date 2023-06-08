@@ -4,6 +4,9 @@ import Home from "../Pages/Home/Home/Home";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import MyBookedClasses from "../Pages/Dashboard/MyBookedClasses";
 
 
 const router = createBrowserRouter([
@@ -26,6 +29,16 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <PrivateRoute> <Dashboard></Dashboard> </PrivateRoute>, 
+      children: [
+        {
+          path: 'mybookedclasses', 
+          element: <MyBookedClasses></MyBookedClasses>
+        }
+      ]
+    }
   ]);
 
 

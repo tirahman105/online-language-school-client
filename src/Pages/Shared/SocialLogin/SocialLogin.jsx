@@ -30,6 +30,7 @@ const SocialLogin = () => {
 
           <p>Continue with Google</p>
         </div>
+        
       </div>
     </div>
   );

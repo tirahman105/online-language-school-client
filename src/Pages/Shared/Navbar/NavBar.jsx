@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import './NavBar.css'
+import { FaShoppingCart } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
+import useBookedClass from '../../../hooks/useBookedClass';
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [bookedClass] = useBookedClass();
 
   const handleLogOut = () => {
       logOut()
@@ -18,6 +21,16 @@ const NavBar = () => {
         <li><a>Classes</a></li>
         <li><a>Dashboard </a></li>
         <li><Link to="/login">Login</Link></li>
+
+        <li>
+            <Link to="/dashboard/mybookedclasses">
+                <button className="btn gap-2">
+                    <FaShoppingCart></FaShoppingCart>
+                    <div className="badge badge-secondary">+{bookedClass?.length || 0}</div>
+                </button>
+            </Link>
+        </li>
+
       
     </>
 

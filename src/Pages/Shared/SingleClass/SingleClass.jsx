@@ -4,11 +4,14 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import useBookedClass from "../../../hooks/useBookedClass";
 const SingleClass = ({singleClass}) => {
 
 // TODO: Image change from DB
     const {_id, name, image, seats, instructor, price, details, category} = singleClass;
         const {user} = useContext(AuthContext);
+
+        const [, refetch] = useBookedClass();
 
 
     const navigate = useNavigate();
@@ -28,7 +31,7 @@ const SingleClass = ({singleClass}) => {
           .then(res => res.json())
           .then(data => {
               if(data.insertedId){
-                 
+                refetch();
                   Swal.fire({
                       position: 'top-end',
                       icon: 'success',
