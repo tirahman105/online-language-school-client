@@ -4,3 +4,7 @@
   .carousel .control-dots .dot{
     background: #1E3A8A !important;
   }
+
+  .carousel-status{
+    display: none;
+  }

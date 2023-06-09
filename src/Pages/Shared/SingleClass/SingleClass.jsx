@@ -66,7 +66,7 @@ const [isAdmin] = useAdmin()
     return (
        
 
-        <div className="card w-96 bg-base-100 shadow-xl mx-auto">
+        <div className="card w-96 bg-base-100 shadow-xl mx-auto border border-white">
   <figure><img src={image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
@@ -93,7 +93,7 @@ const [isAdmin] = useAdmin()
     <button
   disabled={isInstructor || isAdmin}
   onClick={() => handleBookClass(singleClass)}
-  className="btn bg-blue-900 text-white hover:bg-blue-500"
+  className="btn dark:bg-slate-100 dark:text-slate-900 bg-blue-900 text-white hover:bg-blue-500"
 >
   Enroll now
 </button>

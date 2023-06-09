@@ -10,7 +10,7 @@ const PopularClasses = () => {
  
 
   return (
-    <section>
+    <section className="my-8">
       <SectionTitle
         subHeading={"Discover Our Popular English Courses for Every Skill Level"}
         heading={"Popular Classes"}

@@ -62,8 +62,8 @@ const Banner = () => {
                   <div className="flex justify-center items-center">
                   <div>
                   <div  >
-                    <p className="text-6xl">Learn From</p>
-                        <h1 className="text-5xl lg:text-7xl  font-extrabold text-blue-900 px-10"> <span className="text-red-800">Expert</span> <br />
+                    <p className="text-6xl font-extrabold">Learn From</p>
+                        <h1 className=" dark:text-white text-5xl lg:text-7xl  font-extrabold text-blue-900 px-10"> <span className="text-red-800">Expert</span> <br />
                         Instructors!</h1>
                          <br />
                     </div>
