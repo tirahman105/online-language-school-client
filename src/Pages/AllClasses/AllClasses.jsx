@@ -5,6 +5,7 @@ import SingleClass from "../Shared/SingleClass/SingleClass";
 
 const AllClasses = () => {
     const classes = useLoaderData();
+    const approved = classes.filter(singleClass => singleClass.status === 'approved')
     return (
         <section>
         <SectionTitle
@@ -13,7 +14,7 @@ const AllClasses = () => {
         ></SectionTitle>
          <div className="grid md:grid-cols-3 gap-4">
                   {
-                      classes.map(singleClass=> <SingleClass
+                      approved.map(singleClass=> <SingleClass
                       key={singleClass._id}
                       singleClass= {singleClass}>
                       </SingleClass>)

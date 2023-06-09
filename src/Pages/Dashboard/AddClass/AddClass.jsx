@@ -26,11 +26,12 @@ const AddClass = () => {
         .then((imgResponse) => {
           if (imgResponse.success) {
             const imgURL = imgResponse.data.display_url;
-            const { name, instructor ,email, price, module,seats, category, details } = data;
+            const { name, instructor ,email,status, price, module,seats, category, details } = data;
             const newItem = {
               name,
               instructor,
               email,
+              status,
               price: parseFloat(price),
               module: parseFloat(module),
               seats: parseFloat(seats),
@@ -39,7 +40,7 @@ const AddClass = () => {
               image: imgURL,
             };
             console.log(newItem);
-            axiosSecure.post("/classes", newItem).then((data) => {
+            axiosSecure.post("/classes/pending", newItem).then((data) => {
               console.log("after posting new class ", data.data);
               if (data.data.insertedId) {
                 reset();
@@ -95,6 +96,18 @@ const AddClass = () => {
               type="text"
               defaultValue={user?.email}
               {...register("email", { required: true })}
+              className="input input-bordered w-full"
+              readOnly
+            />
+          </div>
+          <div className="form-control w-full mb-4 hidden ">
+            <label className="label">
+              <span className="label-text font-semibold">Status*</span>
+            </label>
+            <input
+              type="text"
+              defaultValue="pending"
+              {...register("status", { required: true })}
               className="input input-bordered w-full"
               readOnly
             />

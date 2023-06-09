@@ -1,19 +1,21 @@
+
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";
 
-
 const useInstructorClasses = () => {
-    const {user}= useAuth();
-    const {data: classes = [], isLoading: loading, refetch} = useQuery({
-        queryKey: ['classes', user?.email],
-        queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/classes?email=${user?.email}`);
-            return res.json();
-        }
-    })
+  const { user } = useAuth();
+  const { data: classes = [], isLoading, refetch } = useQuery(
+    ["classes", user?.email],
+    async () => {
+      const res = await fetch(`http://localhost:5000/classes?email=${user?.email}`);
+      return res.json();
+    },
+    {
+      enabled: !!user?.email && !!localStorage.getItem('access-token'),
+    }
+  );
 
-    return [classes, loading, refetch]
-    
+  return [classes, isLoading, refetch];
 };
 
 export default useInstructorClasses;

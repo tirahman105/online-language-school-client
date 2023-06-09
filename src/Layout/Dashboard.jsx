@@ -230,7 +230,7 @@ const Dashboard = () => {
               </li>
              
               <li>
-                <NavLink to="/dashboard/manageitems">
+                <NavLink to="/dashboard/adminmanageclass">
                   <FaWallet /> Manage Items
                 </NavLink>
               </li>

@@ -308,6 +308,7 @@ const ManageClasses = () => {
               <th>Module</th>
               <th>Available Seats</th>
               <th>Update</th>
+              <th>Status</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -333,6 +334,9 @@ const ManageClasses = () => {
                 <td className="text-right">{item.seats}</td>
                 <td>
                   <button className="btn btn-ghost btn-xs">details</button>
+                </td>
+                <td>
+                  <button className="btn btn-ghost btn-xs">{item.status}</button>
                 </td>
                 <td>
                   <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600 text-white">
