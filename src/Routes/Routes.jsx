@@ -14,6 +14,7 @@ import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import InstructorRoute from "./InstructorRoute";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import AllClasses from "../Pages/AllClasses/AllClasses";
+import AllInstructor from "../Pages/AllInstructor/AllInstructor";
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
           element: <Login></Login>,
         },
         {
-          path:'/allclasses',
+          path: 'instructors',
+          element: <AllInstructor></AllInstructor>,
+        },
+        {
+          path:'allclasses',
           element: <AllClasses></AllClasses>,
           loader: () => fetch('http://localhost:5000/classes')
       },
