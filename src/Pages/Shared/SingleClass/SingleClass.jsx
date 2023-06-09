@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useBookedClass from "../../../hooks/useBookedClass";
 import useInstructor from "../../../hooks/useInstructor";
+import useAdmin from "../../../hooks/useAdmin";
 const SingleClass = ({singleClass}) => {
 
   
@@ -14,6 +15,7 @@ const SingleClass = ({singleClass}) => {
     const {_id, name, image, seats, instructor, price, details, category} = singleClass;
         const {user} = useContext(AuthContext);
 const [isInstructor] = useInstructor();
+const [isAdmin] = useAdmin()
         const [, refetch] = useBookedClass();
 
 
@@ -89,7 +91,7 @@ const [isInstructor] = useInstructor();
     </div>
     <div className="divider"></div>
     <button
-  disabled={instructor === user?.displayName}
+  disabled={isInstructor || isAdmin}
   onClick={() => handleBookClass(singleClass)}
   className="btn bg-blue-900 text-white hover:bg-blue-500"
 >
@@ -102,5 +104,4 @@ const [isInstructor] = useInstructor();
 
 
 export default SingleClass;
-
 

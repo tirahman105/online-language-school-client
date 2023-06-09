@@ -9,7 +9,6 @@ import Dashboard from "../Layout/Dashboard";
 import MyBookedClasses from "../Pages/Dashboard/MyBookedClasses";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
-import Secret from "../Pages/Shared/Secret/Secret";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import InstructorRoute from "./InstructorRoute";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
@@ -41,10 +40,7 @@ const router = createBrowserRouter([
           element: <AllClasses></AllClasses>,
           loader: () => fetch('http://localhost:5000/classes')
       },
-        {
-          path: 'secret',
-          element: <PrivateRoute><Secret></Secret></PrivateRoute>,
-        },
+       
         {
           path: 'signup',
           element: <SignUp></SignUp>

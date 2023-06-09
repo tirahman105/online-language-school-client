@@ -53,10 +53,12 @@
         "_id": "6480a5aedfd3f181cdd0f0ab",
         "image": "https://example.com/english-for-academic-purposes.jpg",
         "name": "Introduction to Mandarin Chinese Calligraphy",
+        "email": "user@gmail.com",
         "instructor": "Li Wei",
         "price": 30,
         "details": "Explore the art of Mandarin Chinese calligraphy with Li Wei, an accomplished calligrapher and language instructor. This class introduces the fundamental brushstrokes, techniques, and aesthetics of Chinese calligraphy. Students will learn to write basic characters while appreciating the cultural significance of this ancient art form. The course fee includes a calligraphy brush set and practice materials mailed to your address.",
         "seats": 10,
-        "category": "popular"
+        "category": "popular",
+        "status": "approved"
       }
   ]

@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import useBookedClass from '../../../hooks/useBookedClass';
+import website_logo from "../../../../src/assets/website_logo.png"
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -22,7 +23,7 @@ const NavBar = () => {
         <li><Link to="/allclasses">Classes</Link></li>
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/login">Login</Link></li>
-        <li><Link to="/secret">Secret</Link></li>
+      
 
         <li>
             <Link to="/dashboard/mybookedclasses">
@@ -50,7 +51,7 @@ const NavBar = () => {
       {navOptions}
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <a className="btn btn-ghost normal-case text-xl"><img src={website_logo} alt="" /></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -58,9 +59,9 @@ const NavBar = () => {
       
     </ul>
   </div>
-  {/* <div className="navbar-end">
-    <a className="btn">Get Started</a>
-  </div> */}
+ 
+
+ 
 
 <div className="navbar-end">
     {user?.email ? (
@@ -74,17 +75,17 @@ const NavBar = () => {
             />
           </div>
         </div>
-        <button onClick={handleLogOut} className="btn ml-2">
+        <button onClick={handleLogOut} className="btn bg-orange-400  border-0 ml-2">
           Logout
         </button>
       </>
     ) : (
       <>
-        <button className="btn bg-[#D36F3F] hover:bg-blue-700 border-0 ml-2">
+        <button className="btn bg-red-800 text-white   border-0 ml  text-white font-bold hover:text-black">
           <Link to="/login">Login</Link>
         </button>
-        <button className="btn ml-2 border-0 bg-[#D36F3F] hover:bg-blue-700 text-white font-bold">
-          <Link to="/register">Register</Link>
+        <button className="btn  bg-red-800 text-white   border-0 ml-2 text-white font-bold hover:text-black">
+          <Link to="/signup">Sign Up</Link>
         </button>
       </>
     )}

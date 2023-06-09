@@ -1,17 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
-
+import { TiTick, TiTimes } from 'react-icons/ti';
 
 const AdminManageClass = () => {
- 
+
     const [axiosSecure] = useAxiosSecure();
     const {data: classes = [], refetch} =useQuery(['classes'], async() => {
         const res = await axiosSecure.get('/classes')
         return res.data;
     })
-
 
     const handleApprove = item =>{
         fetch(`http://localhost:5000/classes/${item._id}`, {
@@ -55,20 +53,28 @@ const AdminManageClass = () => {
                     <td>{item.name}</td>
                     <td>{item.instructor}</td>
                     <td>{item.email}</td>
-                    <td>{ item.status === 'pending' ? <button onClick={() => handleApprove(item)} className="btn btn-ghost bg-orange-600  text-white">Approve</button>  :<button  className="btn btn-success  text-white">Approved</button> 
-                        
+                    <td>{ item.status === 'pending' ? <button onClick={() => handleApprove(item)} className="btn btn-ghost bg-orange-600  text-white">Approve</button>  :<button  className="btn btn-success  text-white">Approved</button>
+
                         }</td>
-                    
+
                 </tr>)
             }
-            
-            
+
         </tbody>
     </table>
 </div>
-    
+
     </div>
   );
 };
 
 export default AdminManageClass;
+
+{
+  /* <td>{ item.status === 'pending' ? <button onClick={() => handleApprove(item)} className="btn btn-ghost bg-orange-600  text-white">Approve</button>  :<button  className="btn btn-success  text-white">Approved</button> 
+                        
+                    }</td> */
+}
+
+
+
