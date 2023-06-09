@@ -5,12 +5,15 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useBookedClass from "../../../hooks/useBookedClass";
+import useInstructor from "../../../hooks/useInstructor";
 const SingleClass = ({singleClass}) => {
+
+  
 
 // TODO: Image change from DB
     const {_id, name, image, seats, instructor, price, details, category} = singleClass;
         const {user} = useContext(AuthContext);
-
+const [isInstructor] = useInstructor();
         const [, refetch] = useBookedClass();
 
 
@@ -62,7 +65,7 @@ const SingleClass = ({singleClass}) => {
        
 
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
-  <figure><img src="https://placehold.co/370x247" alt="Shoes" /></figure>
+  <figure><img src={image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
       {name}
@@ -85,7 +88,13 @@ const SingleClass = ({singleClass}) => {
       </div>
     </div>
     <div className="divider"></div>
-    <button onClick={() => handleBookClass(singleClass)}className="btn bg-blue-900 text-white hover:bg-blue-500 ">Enroll now</button> 
+    <button
+  disabled={instructor === user?.displayName}
+  onClick={() => handleBookClass(singleClass)}
+  className="btn bg-blue-900 text-white hover:bg-blue-500"
+>
+  Enroll now
+</button>
   </div>
 </div>
     );

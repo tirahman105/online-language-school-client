@@ -13,6 +13,7 @@ import Secret from "../Pages/Shared/Secret/Secret";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import InstructorRoute from "./InstructorRoute";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
+import AllClasses from "../Pages/AllClasses/AllClasses";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
           path: 'login',
           element: <Login></Login>,
         },
+        {
+          path:'/allclasses',
+          element: <AllClasses></AllClasses>,
+          loader: () => fetch('http://localhost:5000/classes')
+      },
         {
           path: 'secret',
           element: <PrivateRoute><Secret></Secret></PrivateRoute>,
