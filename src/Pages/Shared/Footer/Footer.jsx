@@ -9,8 +9,7 @@ const Footer = () => {
            <img src={website_logo} alt="" />
             <p>
               Learn Language Online
-              <br />
-              Providing reliable tech since 1992
+             
             </p>
           </div>
           <div>
@@ -61,7 +60,7 @@ const Footer = () => {
         </div>
         <div className="p-4 footer-center bg-base-300 text-base-content">
           <div>
-            <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+            <p>Copyright © 2023 - All right reserved by Learn Language Online Ltd</p>
           </div>
         </div>
       </footer>
