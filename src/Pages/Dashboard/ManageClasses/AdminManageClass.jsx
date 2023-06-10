@@ -64,7 +64,7 @@ const AdminManageClass = () => {
   };
   return (
     <div>
-      <h1>Approved Classes: {classes.length}</h1>
+      <h1 className="text-center">Total Classes: {classes.length}</h1>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           {/* head */}

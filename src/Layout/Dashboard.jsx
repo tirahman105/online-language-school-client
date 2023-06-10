@@ -4,10 +4,11 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import website_logo from "../../src/assets/website_logo.png"
+import useBookedClass from "../hooks/useBookedClass";
 
 
 const Dashboard = () => {
-
+  const [bookedClass] = useBookedClass();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const isUser = !isAdmin && !isInstructor;
@@ -72,6 +73,11 @@ const Dashboard = () => {
                   <AiFillRead /> Manage Classes
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/dashboard/managebooking">
+                  <AiFillRead /> Manage Booking
+                </NavLink>
+              </li>
             </>
           )}
 
@@ -84,7 +90,7 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/mybookedclasses">
-                  <AiFillRead /> My booked classes
+                  <AiFillRead /> My booked classes {bookedClass.length}
                 </NavLink>
               </li>
               <li>

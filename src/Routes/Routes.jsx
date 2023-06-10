@@ -15,6 +15,7 @@ import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import AllInstructor from "../Pages/AllInstructor/AllInstructor";
 import AdminManageClass from "../Pages/Dashboard/ManageClasses/AdminManageClass";
+import ManageBooking from "../Pages/Dashboard/ManageBooking/ManageBooking";
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
         {
           path: 'addclass', 
           element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+        },
+        {
+          path: 'managebooking', 
+          element: <InstructorRoute><ManageBooking></ManageBooking></InstructorRoute>
         },
         {
           path: 'manageclasses', 
