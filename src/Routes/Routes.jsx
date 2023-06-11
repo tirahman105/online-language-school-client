@@ -16,6 +16,7 @@ import AllClasses from "../Pages/AllClasses/AllClasses";
 import AllInstructor from "../Pages/AllInstructor/AllInstructor";
 import AdminManageClass from "../Pages/Dashboard/ManageClasses/AdminManageClass";
 import ManageBooking from "../Pages/Dashboard/ManageBooking/ManageBooking";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
           path: 'allusers', 
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
+        }
       ]
     }
   ]);
