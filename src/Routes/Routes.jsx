@@ -17,6 +17,8 @@ import AllInstructor from "../Pages/AllInstructor/AllInstructor";
 import AdminManageClass from "../Pages/Dashboard/ManageClasses/AdminManageClass";
 import ManageBooking from "../Pages/Dashboard/ManageBooking/ManageBooking";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/Payment/PaymentHistory";
+import MyEnrolledClass from "../Pages/Dashboard/MyEnrolledClass";
 
 
 const router = createBrowserRouter([
@@ -80,6 +82,16 @@ const router = createBrowserRouter([
         {
           path: 'payment',
           element: <Payment></Payment>
+        },
+        {
+          path: 'paymenthistory',
+          element:<AdminRoute><PaymentHistory></PaymentHistory></AdminRoute>,
+          loader: () => fetch('http://localhost:5000/payments')
+        },
+        {
+          path: 'myenrolledclasses',
+          element:<MyEnrolledClass></MyEnrolledClass>
+         
         }
       ]
     }

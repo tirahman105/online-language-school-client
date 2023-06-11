@@ -22,7 +22,7 @@ const CheckoutForm = ({ handleCloseModal, item }) => {
         setClientSecret(res.data.clientSecret);
       });
     }
-  }, [price]);
+  }, [price, axiosSecure]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,7 +48,7 @@ const CheckoutForm = ({ handleCloseModal, item }) => {
       setCardError("");
       console.log("payment method", paymentMethod);
     }
-
+    setProcessing(true)
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -67,6 +67,7 @@ const CheckoutForm = ({ handleCloseModal, item }) => {
       setCardError("");
       console.log("payment method", paymentMethod);
     }
+    console.log(paymentIntent)
     if (paymentIntent.status === 'succeeded') {
         setTransactionId(paymentIntent.id);
         // save payment information to the server
@@ -74,19 +75,21 @@ const CheckoutForm = ({ handleCloseModal, item }) => {
             email: user?.email,
             transactionId: paymentIntent.id,
             price,
+            name: item.name,
             date: new Date(),
-            quantity: item.length,
-            cartItems: item.map(item => item._id),
-            menuItems: item.map(item => item.menuItemId),
+            _id: item._id,
+            bookedClassId: item.bookedClassId,
+           instructor_email: item.email,
+           instructor: item.instructor,
             status: 'service pending',
-            itemNames: item.map(item => item.name)
+            
         }
         axiosSecure.post('/payments', paymentInfo)
             .then(res => {
                 console.log(res.data);
                 if (res.data.result.insertedId) {
                     // display confirm
-                    alert('Payment done')
+                    alert('Payment info added to DB')
                 }
             })
     }
@@ -115,7 +118,7 @@ const CheckoutForm = ({ handleCloseModal, item }) => {
           }}
         />
         <div className="modal-action flex justify-end">
-          <button className="btn btn-warning" type="submit">
+          <button className="btn btn-warning" type="submit" disabled={!stripe || !clientSecret || processing}>
             Pay $ {item.price}
           </button>
           <button type="button" className="btn btn-error" onClick={handleClose}>

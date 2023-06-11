@@ -6,9 +6,11 @@ import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useInstructorClasses from "../../../hooks/useInstructorClasses";
+import UpdateClass from "./UpdateClass";
 
 const ManageClasses = () => {
   const [classes, refetch] = useInstructorClasses()
+  const [selectedItemId, setSelectedItemId] = useState(null);
 
   // const [classes, setClasses] = useState([]);
   const [axiosSecure] = useAxiosSecure();
@@ -61,6 +63,10 @@ const ManageClasses = () => {
     })
   };
 
+  const handleCloseModal = () => {
+    setSelectedItemId(null);
+  };
+
   return (
     <div className="w-full">
       <SectionTitle subHeading="Fill up all information properly" heading="Add New Class" />
@@ -106,6 +112,42 @@ const ManageClasses = () => {
                 </td>
                 <td>
                   <button className="btn btn-ghost btn-xs">{item.feedback}</button>
+                </td>
+                <td>
+                  <button onClick={() => setSelectedItemId(item._id)} className="btn btn-ghost btn-xs">Update</button>
+                  {selectedItemId === item._id && (
+                  <dialog
+                    id={item._id}
+                    className="modal modal-bottom sm:modal-middle"
+                    open
+                  >
+                    
+                    <div method="dialog" className="modal-box">
+                      
+                        <h3 className="font-bold text-lg">
+                          Update: {item.name}
+                        </h3>
+                       
+
+                      <div className="border">
+                      
+                        <UpdateClass handleCloseModal={handleCloseModal}
+                             item={item}></UpdateClass>
+                     
+                      </div>
+                      <div className="modal-action">
+                        
+                        {/* <button
+                          type="button"
+                          className="btn btn-error"
+                          onClick={handleCloseModal}
+                        >
+                          Close
+                        </button> */}
+                      </div>
+                    </div>
+                  </dialog>
+                )}
                 </td>
                 <td>
                   <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600 text-white">
