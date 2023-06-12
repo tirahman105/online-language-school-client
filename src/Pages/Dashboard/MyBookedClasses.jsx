@@ -81,6 +81,16 @@ const MyBookedClasses = () => {
                   </button>
                 </td>
 
+               
+
+                <td>
+                  <button
+                    onClick={() => handleDelete(item)}
+                    className="btn btn-ghost bg-red-600  text-white"
+                  >
+                    <FaTrashAlt></FaTrashAlt>
+                  </button>
+                </td>
                 {selectedItemId === item._id && (
                   <dialog
                     id={item._id}
@@ -117,15 +127,6 @@ const MyBookedClasses = () => {
                     </div>
                   </dialog>
                 )}
-
-                <td>
-                  <button
-                    onClick={() => handleDelete(item)}
-                    className="btn btn-ghost bg-red-600  text-white"
-                  >
-                    <FaTrashAlt></FaTrashAlt>
-                  </button>
-                </td>
               </tr>
             ))}
           </tbody>

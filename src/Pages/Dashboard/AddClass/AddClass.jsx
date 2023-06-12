@@ -9,6 +9,7 @@ const AddClass = () => {
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
   const { register, handleSubmit, reset } = useForm();
+  console.log(user);
 
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
@@ -26,11 +27,12 @@ const AddClass = () => {
         .then((imgResponse) => {
           if (imgResponse.success) {
             const imgURL = imgResponse.data.display_url;
-            const { name, instructor ,email,status, price, module,seats, category, details } = data;
+            const { name,  instructor ,email,status, price, module,seats, category, details } = data;
             const newItem = {
               name,
               instructor,
-              email,
+           
+               email,
               status,
               price: parseFloat(price),
               module: parseFloat(module),
@@ -88,6 +90,7 @@ const AddClass = () => {
               readOnly
             />
           </div>
+        
           <div className="form-control w-full mb-4">
             <label className="label">
               <span className="label-text font-semibold">Instructor Email*</span>

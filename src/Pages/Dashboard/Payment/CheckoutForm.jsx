@@ -81,6 +81,7 @@ const CheckoutForm = ({ handleCloseModal, item }) => {
             bookedClassId: item.bookedClassId,
            instructor_email: item.email,
            instructor: item.instructor,
+           instructorPhoto: item.instructorPhoto,
             status: 'service pending',
             
         }

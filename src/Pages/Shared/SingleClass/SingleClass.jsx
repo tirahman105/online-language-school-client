@@ -12,7 +12,7 @@ const SingleClass = ({singleClass}) => {
   
 
 // TODO: Image change from DB
-    const {_id, name, image, seats, instructor,email, price, details, category} = singleClass;
+    const {_id, name, image, seats, instructorPhoto, instructor,email,  price, details, category} = singleClass;
         const {user} = useContext(AuthContext);
 const [isInstructor] = useInstructor();
 const [isAdmin] = useAdmin()
@@ -25,7 +25,7 @@ const [isAdmin] = useAdmin()
     const handleBookClass = singleClass => {
       console.log(singleClass) 
       if(user && user.email){
-          const bookedClass = {bookedClassId: _id, name, user_name: user.displayName, image,instructor,category, price, email, user_email: user.email}
+          const bookedClass = {bookedClassId: _id, instructorPhoto,  name, user_name: user.displayName, image,instructor,category, price, email, user_email: user.email}
           fetch('http://localhost:5000/booked', {
               method: 'POST',
               headers: {

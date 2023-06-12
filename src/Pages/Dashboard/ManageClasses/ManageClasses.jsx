@@ -15,24 +15,7 @@ const ManageClasses = () => {
   // const [classes, setClasses] = useState([]);
   const [axiosSecure] = useAxiosSecure();
 
-  // const getClasses = async email => {
-  //   try {
-  //     if (user) {
-  //       const response = await axiosSecure.get(`/classes?email=${email}`);
-  //       return response.data;
-  //     }
-  //     return [];
-  //   } catch (error) {
-  //     console.error(error);
-  //     return [];
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getClasses()
-  //     .then((data) => setClasses(data))
-  //     .catch((error) => console.error(error));
-  // }, [user]);
+  
 
   const handleDelete = item => {
     Swal.fire({
