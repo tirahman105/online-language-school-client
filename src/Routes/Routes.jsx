@@ -19,6 +19,7 @@ import ManageBooking from "../Pages/Dashboard/ManageBooking/ManageBooking";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/Payment/PaymentHistory";
 import MyEnrolledClass from "../Pages/Dashboard/MyEnrolledClass";
+import AdminHome from "../Pages/Home/Home/AdminHome";
 
 
 const router = createBrowserRouter([
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
         {
           path:'allclasses',
           element: <AllClasses></AllClasses>,
-          loader: () => fetch('http://localhost:5000/classes')
+          loader: () => fetch('https://summer-camp-school-server-opal.vercel.app/classes')
       },
        
         {
@@ -80,13 +81,18 @@ const router = createBrowserRouter([
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
         {
+          path: 'adminhome',
+          element: <AdminHome></AdminHome>
+
+        },
+        {
           path: 'payment',
           element: <Payment></Payment>
         },
         {
           path: 'paymenthistory',
           element:<AdminRoute><PaymentHistory></PaymentHistory></AdminRoute>,
-          loader: () => fetch('http://localhost:5000/payments')
+          loader: () => fetch('https://summer-camp-school-server-opal.vercel.app/payments')
         },
         {
           path: 'myenrolledclasses',

@@ -7,7 +7,7 @@ const useClasses = () => {
     // const [classes, setClasses] = useState([]);
     // const [loading, setLoading] = useState(true);
     // useEffect(() => {
-    //     fetch('http://localhost:5000/classes')
+    //     fetch('https://summer-camp-school-server-opal.vercel.app/classes')
     //     .then(res => res.json())
     //     .then(data => {
     //         setClasses(data);
@@ -20,7 +20,7 @@ const useClasses = () => {
         queryKey: ['classes'],
         
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/classes');
+            const res = await fetch('https://summer-camp-school-server-opal.vercel.app/classes');
             return res.json();
         }
     })

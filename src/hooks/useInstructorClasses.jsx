@@ -7,7 +7,7 @@ const useInstructorClasses = () => {
   const { data: classes = [], isLoading, refetch } = useQuery(
     ["classes", user?.email],
     async () => {
-      const res = await fetch(`http://localhost:5000/classes?email=${user?.email}`);
+      const res = await fetch(`https://summer-camp-school-server-opal.vercel.app/classes?email=${user?.email}`);
       return res.json();
     },
     {

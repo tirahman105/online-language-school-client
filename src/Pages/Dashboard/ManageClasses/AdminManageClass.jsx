@@ -18,7 +18,7 @@ const AdminManageClass = () => {
 
   const handleApprove = (item) => {
     console.log("approve");
-    fetch(`http://localhost:5000/classes/${item._id}`, {
+    fetch(`https://summer-camp-school-server-opal.vercel.app/classes/${item._id}`, {
       method: "PATCH",
       body: JSON.stringify({ status: "approved" }),
       headers: {
@@ -46,7 +46,7 @@ const AdminManageClass = () => {
   //   event.stopPropagation();
   //   console.log("deny");
 
-  //   fetch(`http://localhost:5000/classes/${item._id}`, {
+  //   fetch(`https://summer-camp-school-server-opal.vercel.app/classes/${item._id}`, {
   //     method: "PATCH",
   //     body: JSON.stringify({ status: "denied" }),
   //     headers: {
@@ -77,7 +77,7 @@ const AdminManageClass = () => {
     const formData = new FormData(event.target);
     const feedback = formData.get("feedback");
 
-    fetch(`http://localhost:5000/classes/${item._id}`, {
+    fetch(`https://summer-camp-school-server-opal.vercel.app/classes/${item._id}`, {
       method: "PATCH",
       body: JSON.stringify({ status: "denied", feedback }),
       headers: {

@@ -44,16 +44,7 @@ useEffect(() => {
         <li><Link to="/allclasses">Classes</Link></li>
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/login">Login</Link></li>
-      
-
-        <li>
-            <Link to="/dashboard/mybookedclasses">
-                <button className="btn gap-2">
-                    <FaShoppingCart></FaShoppingCart>
-                    <div className="badge badge-secondary">+{bookedClass?.length || 0}</div>
-                </button>
-            </Link>
-        </li>
+    
 
       
     </>

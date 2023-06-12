@@ -1,17 +1,26 @@
 import { FaBook, FaHome, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import { AiFillRead } from "react-icons/ai";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import website_logo from "../../src/assets/website_logo.png"
 import useBookedClass from "../hooks/useBookedClass";
+import useAuth from "../hooks/useAuth";
+
 
 
 const Dashboard = () => {
+  const { user, logOut } = useAuth();
   const [bookedClass] = useBookedClass();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const isUser = !isAdmin && !isInstructor;
+  
+  const handleLogOut = () => {
+    logOut()
+        .then(() => { })
+        .catch(error => console.log(error));
+}
 
   return (
     <div className="drawer lg:drawer-open">
@@ -33,7 +42,7 @@ const Dashboard = () => {
           {isAdmin && (
             <>
               <li>
-                <NavLink to="/dashboard/home">
+                <NavLink to="/dashboard/adminhome">
                   <FaHome /> Admin Home
                 </NavLink>
               </li>
@@ -112,6 +121,9 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink to="/classes">Enroll classes</NavLink>
+          </li>
+          <li>
+            <Link onClick={handleLogOut} >  Logout</Link>
           </li>
         </ul>
       </div>

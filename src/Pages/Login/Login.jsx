@@ -9,7 +9,7 @@ import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Login = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const {signIn} = useContext(AuthContext);
-
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -38,7 +38,16 @@ const Login = () => {
         });
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((err) => {
+        setError(err.message);
+        if (err.code === 'auth/user-not-found') {
+          Swal.fire('Error!', 'User does not exist.', 'error');
+        } else if (err.code === 'auth/wrong-password') {
+          Swal.fire('Error!', 'Invalid password.', 'error');
+        } else {
+          Swal.fire('Error!', 'Login failed.', 'error');
+        }
+      });
   };
 
 

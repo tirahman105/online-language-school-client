@@ -1,31 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import InstructorCard from './InstructorCard';
+import  { useEffect, useState } from 'react';
+
 import TopInstructorCard from './TopInstructorCard';
 
 const TopInstructors = () => {
   const [topInstructors, setTopInstructors] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/topInstructors')
+    fetch('https://summer-camp-school-server-opal.vercel.app/topInstructors')
       .then(response => response.json())
       .then(data => {
         setTopInstructors(data);
       })
       .catch(error => {
         console.log('Error:', error);
-        // Handle any errors that occurred during the fetch request
+       
       });
   }, []);
 
   return (
     <div>
-      <h2>Top Instructors</h2>
-      {topInstructors.map((instructor, index) => (
+      <h2 className='text-3xl my-10 text-center'>Top Instructors</h2>
+     <div className='grid grid-cols-1 md:grid-cols-3'>
+     {topInstructors?.map((instructor, index) => (
         <TopInstructorCard
           key={index}
           instructor={instructor}
         />
       ))}
+     </div>
     </div>
   );
 };

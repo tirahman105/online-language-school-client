@@ -18,6 +18,7 @@ const SignUp = () => {
 
   const {createUser, updateUserProfile} = useContext(AuthContext);
   const navigate = useNavigate();
+  const [error, setError] = useState('');
   
   const password = watch("password"); 
   const onSubmit = (data) => {
@@ -33,7 +34,7 @@ const SignUp = () => {
             updateUserProfile(data.name, data.photoURL)
             .then(() => {
               const saveUser = { name: data.name, email: data.email, photo: data.photoURL }
-              fetch('http://localhost:5000/users', {
+              fetch('https://summer-camp-school-server-opal.vercel.app/users', {
                   method: 'POST',
                   headers: {
                       'content-type': 'application/json'
@@ -55,7 +56,23 @@ const SignUp = () => {
                       }
                   })
           })
-                .catch(error => console.log(error))
+          .catch((err) => {
+            setError(err.message);
+            if (err.code === 'auth/user-not-found') {
+              Swal.fire('Error!', 'User does not exist.', 'error');
+            } else if (err.code === 'auth/wrong-password') {
+              Swal.fire('Error!', 'Invalid password.', 'error');
+            }
+            else if(err.code === 'auth/email-already-in-use') {
+              Swal.fire('Error!', 'User Already registered. Try to login!.', 'error');
+              
+              navigate('/login');
+            }
+            else {
+              Swal.fire('Error!', 'Sign up failed.', 'error');
+            }
+           
+          });
         })
 };
 

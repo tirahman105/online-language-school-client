@@ -26,7 +26,7 @@ const [isAdmin] = useAdmin()
       console.log(singleClass) 
       if(user && user.email){
           const bookedClass = {bookedClassId: _id, instructorPhoto,  name, user_name: user.displayName, image,instructor,category, price, email, user_email: user.email}
-          fetch('http://localhost:5000/booked', {
+          fetch('https://summer-camp-school-server-opal.vercel.app/booked', {
               method: 'POST',
               headers: {
                   'content-type': 'application/json'
