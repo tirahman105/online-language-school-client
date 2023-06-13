@@ -16,7 +16,9 @@ const SingleClass = ({singleClass}) => {
         const {user} = useContext(AuthContext);
 const [isInstructor] = useInstructor();
 const [isAdmin] = useAdmin()
-        const [, refetch] = useBookedClass();
+        const [bookedClass, refetch] = useBookedClass();
+       
+
 
 
     const navigate = useNavigate();
@@ -105,4 +107,6 @@ const [isAdmin] = useAdmin()
 
 
 export default SingleClass;
+
+
 

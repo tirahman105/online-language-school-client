@@ -1,10 +1,15 @@
 
-
+import Aos from "aos";
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 const TopInstructorCard = ({ instructor }) => {
   const {name, email, totalPayments, image } = instructor;
+  useEffect(()=> {
+    Aos.init({duration: 1500});
+  },[])
 
   return (
-    <div>
+    <div data-aos="fade-right" className="m-5">
       <div className="card card-compact w-96 bg-base-100 shadow-xl border border-white">
         <figure className="hover:scale-110 transition-transform">
           <img className="h-48 object-cover" src={image} alt="Instructor" />

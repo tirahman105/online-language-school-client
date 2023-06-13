@@ -117,11 +117,9 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/classes"> All Classes</NavLink>
+            <NavLink to="/allclasses"> All Classes</NavLink>
           </li>
-          <li>
-            <NavLink to="/classes">Enroll classes</NavLink>
-          </li>
+        
           <li>
             <Link onClick={handleLogOut} >  Logout</Link>
           </li>
