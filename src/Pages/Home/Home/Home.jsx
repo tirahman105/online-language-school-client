@@ -3,7 +3,7 @@ import Banner from "../Banner/Banner";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import AnimationSection from "../Animation/AnimationSection";
 import TopInstructors from "../../AllInstructor/TopInstructors";
-import SingleClass from "../../Shared/SingleClass/SingleClass";
+
 
 const Home = () => {
     return (

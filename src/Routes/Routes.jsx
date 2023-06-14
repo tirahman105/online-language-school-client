@@ -74,7 +74,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'adminmanageclass', 
-          element: <AdminManageClass></AdminManageClass>
+          element: <AdminRoute><AdminManageClass></AdminManageClass></AdminRoute>
         },
         {
           path: 'allusers', 
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'adminhome',
-          element: <AdminHome></AdminHome>
+          element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
 
         },
         {
