@@ -1,4 +1,4 @@
-# Toy-Car-Zone
+# Online Language School
 
 Live Website link: https://online-language-school-81586.web.app/
 
